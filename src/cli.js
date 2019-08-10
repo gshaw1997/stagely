@@ -210,7 +210,7 @@ async function createCluster() {
                 printHeader('Installing the Ingress Controller')
                 shelljs.exec(`kubectl apply -f https://raw.githubusercontent.com/nginxinc/kubernetes-ingress/master/deployments/common/ns-and-sa.yaml`);
                 shelljs.exec(`kubectl apply -f https://raw.githubusercontent.com/nginxinc/kubernetes-ingress/master/deployments/common/default-server-secret.yaml`);
-                shelljs.exec(`kubectl apply -f ./deployments/nginx-config.yaml`);
+                shelljs.exec(`kubectl apply -f https://raw.githubusercontent.com/gshaw1997/stagely/master/deployments/nginx-config.yaml`);
                 shelljs.exec(`kubectl apply -f https://raw.githubusercontent.com/nginxinc/kubernetes-ingress/master/deployments/rbac/rbac.yaml`);
                 shelljs.exec(`kubectl apply -f https://raw.githubusercontent.com/nginxinc/kubernetes-ingress/master/deployments/deployment/nginx-ingress.yaml`);
                 shelljs.exec(`kubectl apply -f https://raw.githubusercontent.com/nginxinc/kubernetes-ingress/master/deployments/daemon-set/nginx-ingress.yaml`);
