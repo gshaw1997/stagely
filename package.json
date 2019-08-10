@@ -1,0 +1,34 @@
+{
+  "name": "stagely",
+  "version": "0.0.1",
+  "description": "A command line interface for deploying staging clusters to Amazon Web Services",
+  "main": "src/index.js",
+  "bin": {
+    "stagely": "bin/stagely"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "cli",
+    "AWS",
+    "Amazon Web Services",
+    "Kubernetes"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustavus Shaw II <gshaw1997@gmail.com>",
+  "license": "ISC",
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "dependencies": {
+    "arg": "^4.1.1",
+    "chalk": "^2.4.2",
+    "esm": "^3.2.25",
+    "inquirer": "^6.5.0",
+    "shelljs": "^0.8.3"
+  }
+}
