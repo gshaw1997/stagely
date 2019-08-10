@@ -4,6 +4,7 @@ import arg from 'arg';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import shelljs from 'shelljs';
+import path from 'path';
 
 const CONFIG_FILE = 'stagely.config';
 
@@ -244,9 +245,13 @@ async function deleteCluster() {
     exposeClusterStateStore(config.clusterStateStore);
     printHeader(`Deleting Cluster ${config.clusterName}`);
     const clusterDeletion = shelljs.exec(`kops delete cluster ${config.clusterName} --yes`);
+    const clearBucketScript = path.resolve(
+        new URL(import.meta.url).pathname,
+        './scripts/clear-store.sh'
+    );
     if (clusterDeletion.code === 0) {
         console.log('Finalizing clean up...');
-        shelljs.exec(`sh ./clear-store.sh ${config.clusterStateStore}`, { silent: true });
+        shelljs.exec(`sh ${clearBucketScript} ${config.clusterStateStore}`, { silent: true });
         shelljs.exec(`aws s3 rb s3://${config.clusterStateStore} --force `, { silent: true })
         console.log(chalk.green.bold('DONE'), 'Cluster deleted successfully');
     } else {

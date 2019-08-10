@@ -22,7 +22,8 @@
   "license": "ISC",
   "files": [
     "bin/",
-    "src/"
+    "src/",
+    "scripts/"
   ],
   "dependencies": {
     "arg": "^4.1.1",
